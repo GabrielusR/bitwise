@@ -5,21 +5,29 @@
 
 uint8_t is_in_use(uint8_t byte, int bit)
 {
+	CHECK( bit >= 0, "negative bit digit given!" );
+
 	return  ( byte & (1<<bit) );
 }
 
 void set_in_use(uint8_t *byte, int bit)
 {
+	CHECK( bit >= 0, "negative bit digit given!" );
+
 	*byte |= (1<<bit);
 }
 
 void set_unused(uint8_t *byte, int bit)
 {
+	CHECK( bit >= 0, "negative bit digit given!" );
+
 	*byte &= ~(1<<bit);
 }
 
 void flip_bit(uint8_t *byte, int bit)
 {
+	CHECK( bit >= 0, "negative bit digit given!" );
+
 	*byte ^= (1<<bit);
 }
 
